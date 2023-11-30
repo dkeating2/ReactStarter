@@ -17,7 +17,7 @@
     "test:cypress:component": "cypress run --component --reporter junit --reporter-options \"mochaFile=test/cypress/reports/test-output-[hash].xml\"",
     "ci:e2e": "concurrently \"cypress run\" --kill-others \"yarn preview\" --success first ",
     "test:cypress:e2e": "cypress run --e2e  --reporter junit --reporter-options \"mochaFile=test/cypress/reports/test-output-[hash].xml\"",
-    "test:merge-coverage": "npx istanbul-merge --out ./test/merged/coverage/coverage.json ./test/vitest/coverage/coverage-final.json ./test/cypress/coverage/coverage-final.json && npx istanbul report --include ./test/merged/coverage/coverage.json --dir ./test/merged/coverage html",
+    "test:merge-coverage": "npx istanbul-merge --out ./test/merged/coverage/coverage.json ./test/vitest/coverage/coverage-final.json ./test/cypress/coverage/coverage-final.json && npx istanbul report --include ./test/merged/coverage/coverage.json --dir ./test/merged/coverage html && inliner  ./test/merged/coverage/index.html  >   ./test/merged/reports/coverage-report.html ",
     "test:merge-reports": "jrm ./test/merged/reports/combined.xml \"./test/vitest/reports/*.xml\" \"./test/cypress/reports/*.xml\"",
     "knip": "knip"
   },
@@ -57,6 +57,7 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "eslint-plugin-sonar": "^0.12.0",
     "husky": "^8.0.3",
+    "inliner": "^1.13.1",
     "jsdom": "^23.0.0",
     "knip": "^3.3.2",
     "prettier": "^3.1.0",
