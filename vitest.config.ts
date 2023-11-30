@@ -10,6 +10,8 @@ export default defineConfig({
       all: true,
       reportsDirectory: "./test/vitest/coverage",
     },
+    reporters: ["junit"],
+    outputFile: "./test/vitest/reports/junit-report.xml",
     include: [
       "./src/**/*.vitest.unit.test.ts",
       "./src/**/*.vitest.hook.test.tsx",
@@ -17,6 +19,5 @@ export default defineConfig({
     ],
     environment: "jsdom",
     setupFiles: "./setupTest.ts",
-    outputFile: "./test/vitest/report/index.html",
   },
 });
