@@ -14,6 +14,7 @@
     "test": "yarn test:vitest && yarn test:cypress:component && yarn test:cypress:e2e",
     "test:vitest": "vitest --run --coverage",
     "test:cypress:component": "cypress run --component",
+    "ci:e2e": "concurrently \"cypress run\" --kill-others \"yarn preview\" --success first",
     "test:cypress:e2e": "cypress run --e2e",
     "test:merge-coverage": "npx istanbul-merge --out ./test/merged/coverage/coverage.json ./test/vitest/coverage/coverage-final.json ./test/cypress/coverage/coverage-final.json && npx istanbul report --include ./test/merged/coverage/coverage.json --dir ./test/merged/coverage html",
     "knip": "knip"
@@ -25,6 +26,7 @@
     "@mui/material": "^5.14.18",
     "@reduxjs/toolkit": "^1.9.7",
     "@tanstack/react-query": "^5.10.0",
+    "concurrently": "^8.2.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -56,6 +58,7 @@
     "knip": "^3.3.2",
     "prettier": "^3.1.0",
     "sass": "^1.69.5",
+    "start-server-and-test": "^2.0.3",
     "stylelint": "^15.11.0",
     "stylelint-config-standard-scss": "^11.1.0",
     "typescript": "^5.2.2",
